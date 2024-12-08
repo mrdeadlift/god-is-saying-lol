@@ -7,9 +7,9 @@ from PyQt5.QtCore import Qt, QUrl
 import leagueofevents
 
 class VideoPlayer(QWidget):
-    def __init__(self):
+    def __init__(self, video_path):
         super().__init__()
-
+        self.video_path = video_path
         self.initUI()
         self.initVideo()
 
@@ -36,13 +36,13 @@ class VideoPlayer(QWidget):
 
     def initVideo(self):
         # 動画のパスを取得
-        current_dir = os.getcwd()
-        file_path = os.path.join(current_dir, 'video', 'Elshaddai_GodIsSaying_720p.mp4')
+        # current_dir = os.getcwd()
+        # file_path = os.path.join(current_dir, 'video', 'Elshaddai_GodIsSaying_720p.mp4')
 
-        if not os.path.exists(file_path):
-            print("File does not exist:", file_path)
-            return
-        self.media_player.setMedia(QMediaContent(QUrl.fromLocalFile(file_path)))
+        # if not os.path.exists(file_path):
+        #     print("File does not exist:", file_path)
+        #     return
+        self.media_player.setMedia(QMediaContent(QUrl.fromLocalFile(self.video_path)))
         self.media_player.play()
 
     def on_media_state_changed(self, state):
@@ -57,11 +57,46 @@ class VideoPlayer(QWidget):
 
 def onDeath():
     app = QApplication(sys.argv)
-    player = VideoPlayer()
+    # 動画のパスを取得
+    current_dir = os.getcwd()
+    file_path = os.path.join(current_dir, 'video', 'Elshaddai_GodIsSaying_720p.mp4')
+
+    if not os.path.exists(file_path):
+        print("File does not exist:", file_path)
+        return
+    player = VideoPlayer(file_path)
+    player.show()
+    app.exec_()
+
+def onGameJoin():
+    app = QApplication(sys.argv)
+    # 動画のパスを取得
+    current_dir = os.getcwd()
+    file_path = os.path.join(current_dir, 'video', 'Elshaddai_ItsOkNoProblem_720p.mp4')
+
+    if not os.path.exists(file_path):
+        print("File does not exist:", file_path)
+        return
+    player = VideoPlayer(file_path)
+    player.show()
+    app.exec_()
+    
+def onRespawn():
+    app = QApplication(sys.argv)
+    # 動画のパスを取得
+    current_dir = os.getcwd()
+    file_path = os.path.join(current_dir, 'video', 'Elshaddai_TheBestOnePlease_720p.mp4')
+
+    if not os.path.exists(file_path):
+        print("File does not exist:", file_path)
+        return
+    player = VideoPlayer(file_path)
     player.show()
     app.exec_()
 
 if __name__ == '__main__':
-    onDeath()
+    leagueofevents.subscribe_to_event("onGameJoin", onGameJoin)
     leagueofevents.subscribe_to_event("onDeath", onDeath)
+    leagueofevents.subscribe_to_event("onRespawn", onRespawn)
+    
 
