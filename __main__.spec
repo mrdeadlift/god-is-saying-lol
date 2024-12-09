@@ -18,6 +18,7 @@ pyz = PYZ(a.pure)
 
 exe = EXE(
     pyz,
+    Tree('video',prefix='video'),
     a.scripts,
     [],
     exclude_binaries=True,

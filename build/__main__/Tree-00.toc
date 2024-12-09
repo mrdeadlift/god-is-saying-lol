@@ -1,0 +1,13 @@
+('video',
+ 'video',
+ [],
+ 'DATA',
+ [('video\\Elshaddai_GodIsSaying_720p.mp4',
+   'video\\Elshaddai_GodIsSaying_720p.mp4',
+   'DATA'),
+  ('video\\Elshaddai_ItsOkNoProblem_720p.mp4',
+   'video\\Elshaddai_ItsOkNoProblem_720p.mp4',
+   'DATA'),
+  ('video\\Elshaddai_TheBestOnePlease_720p.mp4',
+   'video\\Elshaddai_TheBestOnePlease_720p.mp4',
+   'DATA')])

@@ -31,7 +31,7 @@ class VideoPlayer(QWidget):
 
         self.media_player = QMediaPlayer(None, QMediaPlayer.VideoSurface)
         self.media_player.setVideoOutput(self.video_widget)
-        self.media_player.setVolume(50)
+        self.media_player.setVolume(25)
         self.media_player.stateChanged.connect(self.on_media_state_changed)
 
     def initVideo(self):
@@ -58,9 +58,9 @@ class VideoPlayer(QWidget):
 def onDeath():
     app = QApplication(sys.argv)
     # 動画のパスを取得
-    current_dir = os.getcwd()
-    file_path = os.path.join(current_dir, 'video', 'Elshaddai_GodIsSaying_720p.mp4')
-
+    # current_dir = os.getcwd()
+    # file_path = os.path.join(current_dir, 'video', 'Elshaddai_GodIsSaying_720p.mp4')
+    file_path = resource_path(r'video\Elshaddai_GodIsSaying_720p.mp4')
     if not os.path.exists(file_path):
         print("File does not exist:", file_path)
         return
@@ -71,9 +71,9 @@ def onDeath():
 def onGameJoin():
     app = QApplication(sys.argv)
     # 動画のパスを取得
-    current_dir = os.getcwd()
-    file_path = os.path.join(current_dir, 'video', 'Elshaddai_ItsOkNoProblem_720p.mp4')
-
+    # current_dir = os.getcwd()
+    # file_path = os.path.join(current_dir, 'video', 'Elshaddai_ItsOkNoProblem_720p.mp4')
+    file_path = resource_path(r'video\Elshaddai_ItsOkNoProblem_720p.mp4')
     if not os.path.exists(file_path):
         print("File does not exist:", file_path)
         return
@@ -84,15 +84,24 @@ def onGameJoin():
 def onRespawn():
     app = QApplication(sys.argv)
     # 動画のパスを取得
-    current_dir = os.getcwd()
-    file_path = os.path.join(current_dir, 'video', 'Elshaddai_TheBestOnePlease_720p.mp4')
-
+    # current_dir = os.getcwd()
+    # file_path = os.path.join(current_dir, 'video', 'Elshaddai_TheBestOnePlease_720p.mp4')
+    file_path = resource_path(r'video\Elshaddai_TheBestOnePlease_720p.mp4')
     if not os.path.exists(file_path):
         print("File does not exist:", file_path)
         return
     player = VideoPlayer(file_path)
     player.show()
     app.exec_()
+    
+def resource_path(relative_path):
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 if __name__ == '__main__':
     leagueofevents.subscribe_to_event("onGameJoin", onGameJoin)

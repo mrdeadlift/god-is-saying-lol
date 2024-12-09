@@ -468,7 +468,7 @@
    'C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\typing.py',
    'PYMODULE'),
   ('typing_extensions',
-   'C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\setuptools\\_vendor\\typing_extensions.py',
+   'C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\typing_extensions.py',
    'PYMODULE'),
   ('urllib',
    'C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\urllib\\__init__.py',
