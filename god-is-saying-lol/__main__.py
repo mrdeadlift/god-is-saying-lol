@@ -36,12 +36,6 @@ class VideoPlayer(QWidget):
 
     def initVideo(self):
         # 動画のパスを取得
-        # current_dir = os.getcwd()
-        # file_path = os.path.join(current_dir, 'video', 'Elshaddai_GodIsSaying_720p.mp4')
-
-        # if not os.path.exists(file_path):
-        #     print("File does not exist:", file_path)
-        #     return
         self.media_player.setMedia(QMediaContent(QUrl.fromLocalFile(self.video_path)))
         self.media_player.play()
 
@@ -58,8 +52,6 @@ class VideoPlayer(QWidget):
 def onDeath():
     app = QApplication(sys.argv)
     # 動画のパスを取得
-    # current_dir = os.getcwd()
-    # file_path = os.path.join(current_dir, 'video', 'Elshaddai_GodIsSaying_720p.mp4')
     file_path = resource_path(r'video\Elshaddai_GodIsSaying_720p.mp4')
     if not os.path.exists(file_path):
         print("File does not exist:", file_path)
@@ -71,8 +63,6 @@ def onDeath():
 def onGameJoin():
     app = QApplication(sys.argv)
     # 動画のパスを取得
-    # current_dir = os.getcwd()
-    # file_path = os.path.join(current_dir, 'video', 'Elshaddai_ItsOkNoProblem_720p.mp4')
     file_path = resource_path(r'video\Elshaddai_ItsOkNoProblem_720p.mp4')
     if not os.path.exists(file_path):
         print("File does not exist:", file_path)
@@ -84,8 +74,6 @@ def onGameJoin():
 def onRespawn():
     app = QApplication(sys.argv)
     # 動画のパスを取得
-    # current_dir = os.getcwd()
-    # file_path = os.path.join(current_dir, 'video', 'Elshaddai_TheBestOnePlease_720p.mp4')
     file_path = resource_path(r'video\Elshaddai_TheBestOnePlease_720p.mp4')
     if not os.path.exists(file_path):
         print("File does not exist:", file_path)
